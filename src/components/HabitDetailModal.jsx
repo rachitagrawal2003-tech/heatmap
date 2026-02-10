@@ -1,4 +1,4 @@
-
+import { format } from 'date-fns';
 import Modal from './Modal';
 import Heatmap from './Heatmap';
 import CheckInButton from './CheckInButton';
@@ -7,7 +7,7 @@ export default function HabitDetailModal({ habit, person, data = {}, isOpen, onC
     if (!habit) return null;
 
     // Determine today's check-in status
-    const todayStr = new Date().toISOString().split('T')[0]; // Simple YYYY-MM-DD
+    const todayStr = format(new Date(), 'yyyy-MM-dd');
     const todayValue = data[todayStr];
 
     return (
